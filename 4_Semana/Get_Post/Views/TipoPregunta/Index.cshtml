@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Get_Post.Models.TipoPreguntaModel>
+@{
+    ViewData["Title"] = "Lista de Tipo de Preguntas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var contador = 1;
+}
+<h1>Lista de Tipo de Preguntas</h1>
+<p>
+    <a asp-action="nuevo" class="btn btn-outline-primary">Nuevo Tipo de Pregunta</a>
+</p>
+<table class="table table-bordered table-responsive">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Detalle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tipo in Model) {
+            <tr>
+                <td>@contador</td>
+                <td><label>
+                    @Html.DisplayFor(tipopreegunta => tipo.Detalle)
+                    </label</td>
+            </tr>
+            contador += 1;
+        }
+    </tbody>
+</table>
