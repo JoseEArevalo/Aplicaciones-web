@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "Sistema de Gestión de Inventarios";
+}
+
+<!-- Hero Section -->
+<div class="bg-light py-5 text-center rounded-3 shadow-sm mb-5">
+    <h1 class="display-4 fw-bold text-dark">Bienvenido al Sistema de Inventarios</h1>
+    <p class="lead text-muted">Gestiona tus productos, proveedores y órdenes de compra con facilidad y eficiencia.</p>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <a asp-controller="Account" asp-action="Login" class="btn btn-primary btn-lg mt-3">Iniciar Sesión</a>
+    }
+    else
+    {
+        <p class="text-success fw-bold">¡Hola, @User.Identity.Name! Estás listo para comenzar.</p>
+    }
+</div>
+
+<!-- Cards Section -->
+<div class="row g-4">
+    <!-- Productos Card -->
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm modern-card">
+            <div class="card-body text-center">
+                <i class="fas fa-box-open fa-3x text-primary mb-3"></i>
+                <h5 class="card-title fw-bold">Productos</h5>
+                <p class="card-text text-muted">Administra el catálogo de productos, incluyendo stock y precios.</p>
+                <a asp-controller="Productoes" asp-action="Index" class="btn btn-outline-primary mt-2">Ir a Productos</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Proveedores Card -->
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm modern-card">
+            <div class="card-body text-center">
+                <i class="fas fa-truck fa-3x text-success mb-3"></i>
+                <h5 class="card-title fw-bold">Proveedores</h5>
+                <p class="card-text text-muted">Registra y consulta la información de tus proveedores.</p>
+                <a asp-controller="Proveedors" asp-action="Index" class="btn btn-outline-success mt-2">Ir a Proveedores</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Órdenes de Compra Card -->
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm modern-card">
+            <div class="card-body text-center">
+                <i class="fas fa-file-invoice fa-3x text-warning mb-3"></i>
+                <h5 class="card-title fw-bold">Órdenes de Compra</h5>
+                <p class="card-text text-muted">Crea y revisa las órdenes de compra realizadas.</p>
+                <a asp-controller="OrdenCompras" asp-action="Index" class="btn btn-outline-warning mt-2">Ir a Órdenes</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom CSS -->
+<style>
+    .modern-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .modern-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .btn-outline-primary, .btn-outline-success, .btn-outline-warning {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn-outline-success:hover {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .btn-outline-warning:hover {
+        background-color: #ffc107;
+        color: white;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        // 
+    </script>
+}

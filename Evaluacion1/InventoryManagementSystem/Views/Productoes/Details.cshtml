@@ -1,0 +1,36 @@
+﻿@model InventoryManagementSystem.Models.Producto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>LISTA DE PRODUCTOS</h1>
+
+
+<div class="container py-4">
+    <div class="card shadow-sm border-0 mx-auto" style="max-width: 500px;">
+        <div class="card-header bg-info text-white">
+            <h5 class="mb-0"><i class="fas fa-eye me-2"></i> Detalles de @Html.DisplayFor(model => model.Nombre)</h5>
+        </div>
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Nombre)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Nombre)</dd>
+                <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Descripcion)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Descripcion)</dd>
+                <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Precio)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Precio)</dd>
+                <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Stock)</dt>
+                <dd class="col-sm-8">
+                    <span class="badge bg-@(Model.Stock > 10 ? "success" : Model.Stock > 0 ? "warning" : "danger")">
+                        @Html.DisplayFor(model => model.Stock)
+                    </span>
+                </dd>
+            </dl>
+            <div class="d-flex justify-content-between mt-3">
+                <a asp-action="Edit" asp-route-id="@Model.ProductoId" class="btn btn-warning"><i class="fas fa-edit me-2"></i> Editar</a>
+                <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left me-2"></i> Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
